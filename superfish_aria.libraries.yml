@@ -1,0 +1,13 @@
+superfisharia:
+  version: 1.x
+  css:
+    layout:
+      css/superfisharia.css: {}
+    theme:
+      css/superfisharia.css: {}
+  js:
+    js/superfisharia.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+    - core/jquery.once
