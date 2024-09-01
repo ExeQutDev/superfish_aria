@@ -2,53 +2,31 @@
 
 /**
  * @file
- * Contains superfish_aria.module.
+ * Primary module hooks for Superfish - ARIA module.
  */
-
-use Drupal\Core\Routing\RouteMatchInterface;
-
-/**
- * Implements hook_help().
- */
-function superfish_aria_help($route_name, RouteMatchInterface $route_match) {
-  switch ($route_name) {
-    // Main module help for the superfish_aria module.
-    case 'help.page.superfish_aria':
-      $output = '';
-      $output .= '<h3>' . t('About') . '</h3>';
-      $output .= '<p>' . t('Superfish - Aria 508 compliance extension module') . '</p>';
-      return $output;
-
-    default:
-  }
-}
-
-
-function superfish_aria_theme_suggestions_superfish_alter(array &$suggestions, array $variables) {
-  if (empty($variables['element']) == false) {
-    $suggestions[] = 'superfish-aria';
-  }
-}
 
 function superfish_aria_theme_suggestions_superfish_menu_items_alter(array &$suggestions, array $variables) {
-  if (empty($variables['element']) == false) {
-    $suggestions[] = 'superfish-menu-items-aria';
-  }
+    
+    $suggestions[] = 'superfish_menu_items__superfish_aria_menu_items';
+    
 }
 
-/**
- * Implements hook_theme().
- */
 function superfish_aria_theme() {
     return [
-        'superfish' => [
-            'template' => 'superfish-aria',
-            'base hook' => 'superfish',
-        ],
-        'superfish_menu_items' => [
-            'template' => 'superfish-menu-items-aria',
+        'superfish_menu_items__superfish_aria_menu_items' => [
+            'template' => 'superfish-menu-items--superfish-aria-menu-items',
+            'render element' => 'element',
             'base hook' => 'superfish_menu_items',
-        ],
+        ]
     ];
 }
-        
+
+
+/**
+ * 
+ * Implements hook_page_attachments()
+ */
+function superfish_aria_page_attachments(array &$page) {
+  $page['#attached']['library'][] = 'superfish_aria/global-scripts';
+}
+ 

@@ -1,13 +1,9 @@
-superfisharia:
+global-scripts:
   version: 1.x
-  css:
-    layout:
-      css/superfisharia.css: {}
-    theme:
-      css/superfisharia.css: {}
+  header: true
   js:
-    js/superfisharia.js: {}
+    js/superfish-aria.js: {}
   dependencies:
+    - core/drupal
     - core/jquery
-    - core/drupalSettings
-    - core/jquery.once
+    - superfish/superfish

@@ -7,8 +7,5 @@ https://www.drupal.org/project/superfish
 This module extends the current display of existing menus to be aria compliant.
 Or at least attempts to.
 
-Log: 10/11/2022
+Log: 08/15/2024
 -- Basic Menu layout, labeling and aria states for menu items.
-
-todo:
-keyboard controls
